@@ -115,7 +115,7 @@ public class ArkChar {
             throw new RuntimeException("Launch ArkPets failed, the model asset may be inaccessible.");
         }
         skeleton = new Skeleton(skeletonData);
-        skeleton.updateWorldTransform();
+        skeleton.updateWorldTransform(Skeleton.Physics.reset);
         animList = new AnimClipGroup(skeletonData.getAnimations().toArray(Animation.class));
         // 4.Animation mixing
         AnimationStateData asd = new AnimationStateData(skeletonData);
@@ -235,7 +235,7 @@ public class ArkChar {
         alpha.addProgress(Gdx.graphics.getDeltaTime());
         skeleton.setPosition(position.now().x, position.now().y + offsetY.now());
         skeleton.setScaleX(position.now().z);
-        skeleton.updateWorldTransform();
+        skeleton.updateWorldTransform(Skeleton.Physics.pose);
         batch.getProjectionMatrix().set(camera.combined);
         // Apply current animation
         animationState.apply(skeleton);
@@ -281,7 +281,7 @@ public class ArkChar {
         position.reset(camera.getWidth() >> 1, position.end().y, position.end().z);
         skeleton.setPosition(position.end().x, position.end().y + offsetY.end());
         skeleton.setScaleX(position.end().z);
-        skeleton.updateWorldTransform();
+        skeleton.updateWorldTransform(Skeleton.Physics.pose);
         animationState.apply(skeleton);
         batch.getProjectionMatrix().set(camera.combined);
         shader1.bind();
