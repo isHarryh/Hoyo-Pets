@@ -1,15 +1,15 @@
-ArkPets附加说明文档
+HoyoPets附加说明文档
 # 命令行启动
 
-ArkPets 的命令行启动方法。
+HoyoPets 的命令行启动方法。
 
 ### 前提
 必须将命令行工作目录设置为程序文件所在的目录，否则可能发生各种奇怪的错误。
 
 ### 用法
-`ArkPets.exe`：
+`HoyoPets.exe`：
 ```
-ArkPets [--direct-start [--load-lib <path>] [--enable-snapshot]]
+HoyoPets [--direct-start [--load-lib <path>] [--enable-snapshot]]
         [--quiet|--warn|--info|--debug]
 ```
 
@@ -27,9 +27,9 @@ ArkPets [--direct-start [--load-lib <path>] [--enable-snapshot]]
 
 ### 用例
 ```shell
-cd /d D:\MyArkPets
+cd /d D:\MyHoyoPets
 ArkPets --direct-start --debug
 ```
 
 ### 提示
-如果您使用的程序文件是 `.jar` 版本 ，命令行应该以形如 `java -jar ArkPets.jar` 或者 `ArkPets.jar` 开头。注意写完整文件名。
+如果您使用的程序文件是 `.jar` 版本 ，命令行应该以形如 `java -jar HoyoPets.jar` 或者 `HoyoPets.jar` 开头。注意写完整文件名。
