@@ -19,10 +19,10 @@ allprojects {
     apply plugin: "java-library"
     apply plugin: "org.openjfx.javafxplugin"
 
-    version = "3.8.0"
+    version = "1.0.0"
     ext {
         // App Metadata
-        appName = "ArkPets"
+        appName = "HoyoPets"
         appAuthor = "Harry Huang"
         appYearBegin = "2022"
         appYearCurrent = new Date().format("yyyy", TimeZone.getTimeZone("GMT+0:00"))
@@ -54,7 +54,7 @@ project(":desktop") {
 project(":core") {
     dependencies {
         // Spine Runtime
-        api "com.esotericsoftware.spine:spine-libgdx:3.8.99.1"
+        api "com.esotericsoftware.spine:spine-libgdx:4.2.0"
         // libGDX
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"

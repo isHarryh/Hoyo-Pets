@@ -1,24 +1,23 @@
-; *** Inno Setup Script for ArkPets ***
+; *** Inno Setup Script for HoyoPets ***
 ; This script is based on Inno Setup 6, a free installer for Windows programs.
 ; Documentation: https://jrsoftware.org/ishelp.php
 ; Download Inno Setup: https://jrsoftware.org/isdl.php
 
-#define MyAppName "ArkPets"
-#define MyAppVersion "3.8.0"
+#define MyAppName "HoyoPets"
+#define MyAppVersion "1.0.0"
 #define MyAppPublisher "Harry Huang"
-#define MyAppURL "https://arkpets.harryh.cn/"
 
 [Setup]
 ; WARN: The value of AppId uniquely identifies this app. Do not use the same AppId value in installers for other apps.
 ; (To generate a new GUID, click Tools | Generate GUID inside the Inno Setup IDE.)
 AppCopyright        = Copyright (C) 2022-2025 {#MyAppPublisher}
-AppId               ={{213DB689-8F8A-4DEA-BE79-545FAD7769A6}
+AppId               ={{F68904B8-A3BC-40DC-9273-84A753F7539C}
 AppName             ={#MyAppName}
 AppVersion          ={#MyAppVersion}
 AppVerName          ="{#MyAppName} {#MyAppVersion}"
 AppPublisher        ={#MyAppPublisher}
-AppPublisherURL     ={#MyAppURL}
-AppSupportURL       ={#MyAppURL}
+; AppPublisherURL     ={#MyAppURL}
+; AppSupportURL       ={#MyAppURL}
 
 AllowNoIcons        =yes
 Compression         =lzma2/max
@@ -107,7 +106,7 @@ Source: "..\..\desktop\build\jpackage\LICENSE"; DestDir: "{app}"; Flags: ignorev
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppName}.exe"; WorkingDir: "{app}"
-Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
+; Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppName}.exe"; Tasks: desktopicon; WorkingDir: "{app}"
 
@@ -115,12 +114,8 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppName}.exe"; Tasks: d
 Filename: "{app}\{#MyAppName}.exe"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [UninstallDelete]
-Type: files; Name: "{app}\ArkPetsConfig.json"
+Type: files; Name: "{app}\HoyoPetsConfig.json"
 Type: files; Name: "{app}\models_data.json"
 Type: filesandordirs; Name: "{app}\logs"
 Type: filesandordirs; Name: "{app}\temp"
-Type: filesandordirs; Name: "{app}\models"
-Type: filesandordirs; Name: "{app}\models_enemies"
-Type: filesandordirs; Name: "{app}\models_illust"
-Type: files; Name: "{userstartup}\ArkPetsStartup.lnk"
-Type: files; Name: "{userstartup}\ArkPetsStartupService.vbs"
+Type: files; Name: "{userstartup}\HoyoPetsStartup.lnk"
