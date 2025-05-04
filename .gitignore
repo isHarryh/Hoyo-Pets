@@ -21,6 +21,6 @@ temp*/
 test*/
 
 # Exclude runtime files
-/ArkPetsConfig.json
+/HoyoPetsConfig.json
 /models_data.json
 /*.log

@@ -4,7 +4,7 @@
 <!--suppress HtmlDeprecatedAttribute -->
 <div align="center" style="text-align:center">
    <h1> Hoyo-Pets </h1>
-   <img alt="HoyoPets icon" width="64" src="https://raw.githubusercontent.com/isHarryh/Hoyo-Pets/v1.x/assets/icons/icon.png">
+   <img alt="HoyoPets icon" width="64" src="https://raw.githubusercontent.com/isHarryh/Hoyo-Pets/v1.x/assets/_icons/icon.png">
    <p>
       Hoyo Desktop Pets | 哈游桌宠 (HoyoPets) <br>
       <code><b> v1.0 </b></code>
@@ -71,7 +71,8 @@ HoyoPets 完美地继承了 [ArkPets](https://github.com/isHarryh/Ark-Pets) 项�
 在[快速上手](#快速上手)中介绍的是最简单和普遍的使用方法。除此之外：
 
 - 您还可以下载 `zip` 版的程序压缩包解压，实现免安装使用。
-- 如果您的电脑上存在 `JDK17` 的 [Java](https://www.java.com) 运行环境，您还可以下载 `jar` 版的程序文件直接运行（但无法使用开机自启动功能，且需要自行前往下载并解压[模型文件](https://github.com/isHarryh/Hoyo-Spine-Models)）。
+- 如果您的电脑上存在 `JDK17` 的 [Java](https://www.java.com) 运行环境，您还可以下载 `jar` 版的程序文件直接运行（但无法使用开机自启动功能）。
+- 上述两种使用方法，都需要自行前往下载并解压[模型文件](https://github.com/isHarryh/Hoyo-Spine-Models)到程序根目录。
 - 如果您想用命令行启动桌宠，[点击查看](docs/CmdLine.md)说明。
 - 如果您想使用直播流软件捕捉桌宠窗口，可以在启动器 “选项” 页面禁用 “桌宠作为后台程序启动”。
 

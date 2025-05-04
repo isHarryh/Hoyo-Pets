@@ -39,13 +39,12 @@ public final class Const {
     public static final int fpsDefault          = 30;
     public static final int coreWidthDefault    = 150;
     public static final int coreHeightDefault   = 150;
-    public static final int canvasReserveLength = 15;
+    public static final int canvasReserveLength = 20;
     public static final int canvasMaxSize       = 4320;
     public static final float skelBaseScale     = 0.1f;
 
     // Behavior presets
     public static final int behaviorBaseWeight      = 320;
-    public static final float droppedThreshold      = 10f;
 
     // Duration presets
     public static final Duration durationFast   = new Duration(150);
@@ -58,7 +57,7 @@ public final class Const {
     // Paths of static files and internal files
     public static final String configExternal   = "HoyoPetsConfig.json";
     public static final String configInternal   = "/HoyoPetsConfigDefault.json";
-    public static final String iconFilePng      = "/icons/icon.png";
+    public static final String iconFilePng      = "/_icons/icon.png";
     // %s will be replaced by GL version (gl21, gles30)
     public static final String pass1VShader     = "shaders/%s/PlainVertex.glsl";
     public static final String pass1FShader     = "shaders/%s/PlainFragment.glsl";

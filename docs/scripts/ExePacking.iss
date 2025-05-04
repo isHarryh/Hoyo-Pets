@@ -26,7 +26,7 @@ DefaultGroupName    ={#MyAppName}
 PrivilegesRequired  =lowest
 OutputBaseFilename  ={#MyAppName}-v{#MyAppVersion}-Setup
 OutputDir           =..\..\desktop\build\dist
-SetupIconFile       =..\..\assets\icons\icon.ico
+SetupIconFile       =..\..\assets\_icons\icon.ico
 SolidCompression    =yes
 UninstallDisplayIcon={app}\{#MyAppName}.ico
 WizardStyle         =modern
@@ -100,6 +100,10 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 ; Name: envPath; Description: "Add to PATH variable"
 
 [Files]
+; NOTE: Here we pre-packed model files. Make sure you have these files or directories:
+Source: "..\..\models_hksr_2y\*"; DestDir: "{app}\models_hksr_2y"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\..\models_data.json"; DestDir: "{app}"; Flags: ignoreversion
+
 Source: "..\..\desktop\build\jpackage\{#MyAppName}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "..\..\desktop\build\jpackage\LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files

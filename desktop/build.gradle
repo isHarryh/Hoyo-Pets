@@ -2,7 +2,7 @@
 sourceSets.main.java.srcDirs = ["src/"]
 sourceSets.main.resources.srcDirs = ["../assets"]
 
-project.ext.mainClassName = "cn.harryh.arkpets.DesktopLauncher"
+project.ext.mainClassName = "cn.harryh.hoyopets.DesktopLauncher"
 project.ext.assetsDir = new File("../assets")
 eclipse.project.name = appName + "-desktop"
 
@@ -133,10 +133,10 @@ task jpackage(dependsOn: jlink, type: Exec, group: 'dist') {
     ]
     if (osName.contains('windows')) {
         commands << '--icon'
-        commands << "${project.assetsDir}/icons/icon.ico"
+        commands << "${project.assetsDir}/_icons/icon.ico"
     } else if (osName.contains('linux')) {
         commands << '--icon'
-        commands << "${project.assetsDir}/icons/icon.png"
+        commands << "${project.assetsDir}/_icons/icon.png"
     } else if (osName.contains('mac')) {
         commands << '--java-options'
         commands << "-XstartOnFirstThread"
