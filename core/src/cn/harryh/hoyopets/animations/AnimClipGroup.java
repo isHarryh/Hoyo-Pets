@@ -102,37 +102,30 @@ public class AnimClipGroup implements Collection<AnimClip> {
      * @return The animation data whose animation clip will be none if not found.
      */
     public AnimData getStreamedAnimData(AnimType type) {
-        AnimClipGroup found = this.findAnimations(type);
-        AnimClip begin = found.findAnimations(AnimModifier.BEGIN).get(0);
-        AnimClip end = found.findAnimations(AnimModifier.END).get(0);
-        AnimClip loop = found.findAnimations(AnimModifier.LOOP).get(0);
-        AnimClip none = found.findAnimations(AnimModifier.NONE).get(0);
-        AnimClip center = loop != null ? loop : none;
-        if (center != null) {
-            AnimData result = new AnimData(center);
-            if (begin != null)
-                result = new AnimData(begin).join(result);
-            if (end != null)
-                result = result.join(new AnimData(end));
-            return result;
-        }
-        return new AnimData(null);
+        throw new RuntimeException("Not implemented");
     }
 
     /** Draws a loop animation data from this animation clip group.
      * <hr>
      * A loop animation is a single animation which could be played in loop and typically could be interrupted.
      * @param type The specified animation type.
+     * @param typeOver The specified animation's upper track type.
      * @return The animation data whose animation clip will be none if not found.
      */
-    public AnimData getLoopAnimData(AnimType type) {
+    public AnimData getLoopAnimData(AnimType type, AnimType typeOver) {
         AnimClipGroup found = this.findAnimations(type);
         AnimClip loop = found.findAnimations(AnimModifier.LOOP).get(0);
         AnimClip none = found.findAnimations(AnimModifier.NONE).get(0);
         AnimClip center = loop != null ? loop : none;
+
+        AnimClipGroup foundOver = this.findAnimations(typeOver);
+        AnimClip loopOver = foundOver.findAnimations(AnimModifier.LOOP).get(0);
+        AnimClip noneOver = foundOver.findAnimations(AnimModifier.NONE).get(0);
+        AnimClip centerOver = loopOver != null ? loopOver : noneOver;
+
         if (center != null)
-            return new AnimData(center, null, true, false, 0);
-        return new AnimData(null);
+            return new AnimData(center, centerOver, null, true, false, 0);
+        return new AnimData(null, null);
     }
 
     /** Draws a strict animation data from this animation clip group.
@@ -142,13 +135,7 @@ public class AnimClipGroup implements Collection<AnimClip> {
      * @return The animation data whose animation clip will be none if not found.
      */
     public AnimData getStrictAnimData(AnimType type) {
-        AnimClipGroup found = this.findAnimations(type);
-        AnimClip loop = found.findAnimations(AnimModifier.LOOP).get(0);
-        AnimClip none = found.findAnimations(AnimModifier.NONE).get(0);
-        AnimClip center = loop != null ? loop : none;
-        if (center != null)
-            return new AnimData(center, null, false, true);
-        return new AnimData(null);
+        throw new RuntimeException("Not implemented");
     }
 
     protected void sortStages() {

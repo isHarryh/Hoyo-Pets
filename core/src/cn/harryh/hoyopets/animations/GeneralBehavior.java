@@ -61,7 +61,7 @@ public class GeneralBehavior extends Behavior {
     private AnimDataWeight[] getActionList(AnimClipGroup animList) {
         ArrayList<AnimDataWeight> actionList = new ArrayList<>(List.of(
                 new AnimDataWeight(
-                        animList.getLoopAnimData(AnimType.IDLE),
+                        animList.getLoopAnimData(AnimType.IDLE, AnimType.EMOJI_IDLE),
                         Math.round(behaviorBaseWeight / (float) Math.sqrt(config.behavior_ai_activation))
                 )
         ));
@@ -71,7 +71,7 @@ public class GeneralBehavior extends Behavior {
 
     @Override
     public AnimData defaultAnim() {
-        return stageAnimList.getLoopAnimData(AnimType.IDLE);
+        return stageAnimList.getLoopAnimData(AnimType.IDLE, AnimType.EMOJI_IDLE);
     }
 
     @Override

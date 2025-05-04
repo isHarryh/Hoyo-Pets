@@ -28,7 +28,13 @@ public class AnimClip {
      */
     public enum AnimType {
         NONE("", 5),
-        IDLE("^((idle)|(idel))$", 50);
+        IDLE("^((idle)|(idel))$", 50),
+        EMOJI_IDLE("^emoji_0$", 50),
+        EMOJI_A("^emoji_1$", 50),
+        EMOJI_B("^emoji_2$", 50),
+        EMOJI_C("^emoji_3$", 50),
+        EMOJI_D("^emoji_4$", 50),
+        EMOJI_TALK("^emoji_5$", 50);
 
         /** The regex pattern of this type of animation, which is case-insensitive. */
         public final Pattern pattern;
@@ -142,7 +148,8 @@ public class AnimClip {
      * @param duration The duration of the animation (second).
      */
     public AnimClip(String name, float duration) {
-        ArrayList<String> elements = split(name);
+//        ArrayList<String> elements = split(name);
+        ArrayList<String> elements = new ArrayList<>(List.of(name));
         RecognitionResult<AnimType> temp = recognizeType(elements);
         this.fullName = name;
         this.baseName = temp.according;

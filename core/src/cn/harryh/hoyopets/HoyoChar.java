@@ -317,7 +317,7 @@ public class HoyoChar {
         int totalSamples = 0;
         for (AnimClip animClip : animList.findAnimations(stage)) {
             composer.reset();
-            composer.offer(new AnimData(animClip));
+            composer.offer(new AnimData(animClip, null));
             float totalTime = animationState.getCurrent(0).getAnimation().getDuration();
             if (totalTime > 0) {
                 totalSamples += timePerSample <= 0 || totalTime <= timePerSample * 2
@@ -334,7 +334,7 @@ public class HoyoChar {
         float alphaPerSample = (float) Math.max(1.0 - 254.0 / 255.0, 1.0 - Math.pow(10.0, -4.0 / totalSamples));
         for (AnimClip animClip : animList.findAnimations(stage)) {
             composer.reset();
-            composer.offer(new AnimData(animClip));
+            composer.offer(new AnimData(animClip, null));
             float totalTime = animationState.getCurrent(0).getAnimation().getDuration();
             if (totalTime > 0) {
                 if (timePerSample <= 0 || totalTime <= timePerSample * 2) {

@@ -8,6 +8,7 @@ import java.util.Objects;
 
 /** Animation data record.
  * @param animClip The animation clip of THIS animation data.
+ * @param animClipOver The animation clip of THIS animation data's upper track.
  * @param animNext The NEXT animation data, which would be applied after this animation ended.
  * @param isLoop {@code true} indicates that this animation could be played in loop.
  * @param isStrict {@code true} indicates that this animation couldn't be interrupted.
@@ -15,6 +16,7 @@ import java.util.Objects;
  */
 public record AnimData(
         AnimClip animClip,
+        AnimClip animClipOver,
         AnimData animNext,
         boolean isLoop,
         boolean isStrict,
@@ -22,19 +24,21 @@ public record AnimData(
 ) {
     /** Animation data record (simplified constructor).
      * @param animClip The animation clip of THIS animation data.
+     * @param animClipOver The animation clip of THIS animation data's upper track.
      */
-    public AnimData(AnimClip animClip) {
-        this(animClip, null, false, false, 0);
+    public AnimData(AnimClip animClip, AnimClip animClipOver) {
+        this(animClip, animClipOver, null, false, false, 0);
     }
 
     /** Animation data record (simplified constructor).
      * @param animClip The animation clip of THIS animation data.
+     * @param animClipOver The animation clip of THIS animation data's upper track.
      * @param animNext The NEXT animation data, which would be applied after this animation ended.
      * @param isLoop {@code true} indicates that this animation could be played in loop.
      * @param isStrict {@code true} indicates that this animation couldn't be interrupted.
      */
-    public AnimData(AnimClip animClip, AnimData animNext, boolean isLoop, boolean isStrict) {
-        this(animClip, animNext, isLoop, isStrict, 0);
+    public AnimData(AnimClip animClip, AnimClip animClipOver, AnimData animNext, boolean isLoop, boolean isStrict) {
+        this(animClip, animClipOver, animNext, isLoop, isStrict, 0);
     }
 
     /** Derives a variation of this animation data by modifying the mobility property.
@@ -42,7 +46,7 @@ public record AnimData(
      * @return New animation data.
      */
     public AnimData derive(int mobility) {
-        return new AnimData(this.animClip, this.animNext, this.isLoop, this.isStrict, mobility);
+        return new AnimData(this.animClip, this.animClipOver, this.animNext, this.isLoop, this.isStrict, mobility);
     }
 
     /** Joins another animation data, which would be applied after this animation ended, to this animation data.
@@ -51,9 +55,9 @@ public record AnimData(
      */
     public AnimData join(AnimData animNext) {
         if (this.animNext == null)
-            return new AnimData(this.animClip, animNext, this.isLoop, this.isStrict, this.mobility);
+            return new AnimData(this.animClip, this.animClipOver, animNext, this.isLoop, this.isStrict, this.mobility);
         else
-            return new AnimData(this.animClip, this.animNext.join(animNext), this.isLoop, this.isStrict, this.mobility);
+            return new AnimData(this.animClip, this.animClipOver, this.animNext.join(animNext), this.isLoop, this.isStrict, this.mobility);
     }
 
     public boolean isEmpty() {

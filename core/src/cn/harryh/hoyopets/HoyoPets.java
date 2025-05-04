@@ -126,7 +126,7 @@ public class HoyoPets extends ApplicationAdapter implements InputProcessor {
                 if (willReachBorder(cha.getPlaying().mobility())) {
                     // Turn around if auto-walk cause the collision from screen border.
                     newAnim = cha.getPlaying();
-                    newAnim = new AnimData(newAnim.animClip(), null, newAnim.isLoop(), newAnim.isStrict(), -newAnim.mobility());
+                    newAnim = new AnimData(newAnim.animClip(), newAnim.animClipOver(), null, newAnim.isLoop(), newAnim.isStrict(), -newAnim.mobility());
                     tray.keepAnim = tray.keepAnim == null ? null : newAnim;
                 }
                 walkWindow(0.85f * cha.getPlaying().mobility());

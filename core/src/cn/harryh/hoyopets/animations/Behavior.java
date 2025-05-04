@@ -79,34 +79,34 @@ abstract public class Behavior {
      * @return AnimData object.
      */
     public AnimData defaultAnim() {
-        return new AnimData(null);
+        return new AnimData(null, null);
     }
 
     /** Gets the animation when mouse-down.
      * @return AnimData object.
      */
     public AnimData clickStart() {
-        return new AnimData(null);
+        return new AnimData(null, null);
     }
 
     /** Gets the animation when mouse-up.
      * @return AnimData object.
      */
     public AnimData clickEnd() {
-        return new AnimData(null);
+        return new AnimData(null, null);
     }
 
     /** Gets the animation when the user starts dragging.
      * @return AnimData object.
      */
     public AnimData dragging() {
-        return new AnimData(null);
+        return new AnimData(null, null);
     }
 
     /** Gets the animation when character dropped.
      * @return AnimData object.
      */
     public AnimData dropped() {
-        return new AnimData(null);
+        return new AnimData(null, null);
     }
 }

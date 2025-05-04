@@ -9,6 +9,7 @@ import com.esotericsoftware.spine.AnimationState;
 public class AnimComposer {
     protected final AnimationState state;
     protected final int coreTrackId = 0;
+    protected final int overTrackId = 1;
     protected AnimData playing;
 
     public AnimComposer(AnimationState boundState) {
@@ -37,6 +38,9 @@ public class AnimComposer {
             if (playing == null || playing.isEmpty() || (!playing.isStrict() && !playing.equals(animData))) {
                 playing = animData;
                 state.setAnimation(coreTrackId, playing.name(), playing.isLoop());
+                if (playing.animClipOver() != null) {
+                    state.setAnimation(overTrackId, playing.animClipOver().fullName, playing.isLoop());
+                }
                 onApply(playing);
                 return true;
             }
@@ -51,6 +55,7 @@ public class AnimComposer {
     public void reset() {
         playing = null;
         state.setEmptyAnimation(coreTrackId, 0f);
+        state.setEmptyAnimation(overTrackId, 0f);
     }
 
     protected void onApply(AnimData playing) {
