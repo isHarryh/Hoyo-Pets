@@ -19,6 +19,7 @@ public class GeneralBehavior extends Behavior {
     protected final ArrayList<AnimStage> stageList;
     protected final HashMap<AnimStage, AnimClipGroup> stageAnimMap;
     protected final HashMap<AnimStage, AnimDataWeight[]> stageAnimWeightMap;
+    protected static final List<AnimType> emojiTypes = List.of(AnimType.EMOJI_A, AnimType.EMOJI_B, AnimType.EMOJI_C);
 
     public GeneralBehavior(HoyoConfig config, AnimClipGroup animList) {
         super(config, animList);
@@ -69,6 +70,14 @@ public class GeneralBehavior extends Behavior {
         return actionList.toArray(new AnimDataWeight[0]);
     }
 
+    private AnimClip getRandomEmojiClip() {
+        List<AnimClip> candidates = stageAnimList
+                .stream()
+                .filter(animClip -> emojiTypes.contains(animClip.type))
+                .toList();
+        return candidates.isEmpty() ? null : candidates.get(Math.abs(new Random().nextInt() % candidates.size()));
+    }
+
     @Override
     public AnimData defaultAnim() {
         return stageAnimList.getLoopAnimData(AnimType.IDLE, AnimType.EMOJI_IDLE);
@@ -76,6 +85,10 @@ public class GeneralBehavior extends Behavior {
 
     @Override
     public AnimData clickEnd() {
+        AnimClip clip = getRandomEmojiClip();
+        if (clip != null) {
+            return new AnimData(defaultAnim().animClip(), clip, defaultAnim(), true, false);
+        }
         return defaultAnim();
     }
 

@@ -5,6 +5,8 @@ package cn.harryh.hoyopets.animations;
 
 import com.esotericsoftware.spine.AnimationState;
 
+import java.util.Objects;
+
 
 public class AnimComposer {
     protected final AnimationState state;
@@ -36,8 +38,16 @@ public class AnimComposer {
     public boolean offer(AnimData animData) {
         if (animData != null && !animData.isEmpty()) {
             if (playing == null || playing.isEmpty() || (!playing.isStrict() && !playing.equals(animData))) {
-                playing = animData;
-                state.setAnimation(coreTrackId, playing.name(), playing.isLoop());
+                if (playing == null ||
+                        !Objects.equals(playing.name(), animData.name()) ||
+                        animData.isLoop() != playing.isLoop() ||
+                        animData.isStrict() != playing.isStrict()
+                ) {
+                    playing = animData;
+                    state.setAnimation(coreTrackId, playing.name(), playing.isLoop());
+                } else {
+                    playing = animData;
+                }
                 if (playing.animClipOver() != null) {
                     state.setAnimation(overTrackId, playing.animClipOver().fullName, playing.isLoop());
                 }
