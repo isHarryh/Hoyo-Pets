@@ -20,21 +20,21 @@
         <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0"
                     prefWidth="425.0" styleClass="config-field">
             <VBox>
-                <Label styleClass="config-group-title" text="动作"/>
-                <HBox>
+                <Label styleClass="config-group-title" text="动作" visible="false" managed="false"/>
+                <HBox visible="false" managed="false">
                     <JFXCheckBox fx:id="configBehaviorAllowWalk" mnemonicParsing="false" text="允许行走"/>
                     <JFXCheckBox fx:id="configBehaviorAllowSit" mnemonicParsing="false" text="允许坐下"/>
                 </HBox>
-                <HBox>
+                <HBox visible="false" managed="false">
                     <JFXCheckBox fx:id="configBehaviorAllowSleep" mnemonicParsing="false" text="允许躺下"/>
                     <JFXCheckBox fx:id="configBehaviorAllowSpecial" mnemonicParsing="false" text="允许特殊动作"/>
                 </HBox>
-                <HBox>
+                <HBox visible="false" managed="false">
                     <Label text="动作活跃度"/>
                     <JFXSlider fx:id="configBehaviorAiActivation"/>
                     <Label fx:id="configBehaviorAiActivationValue" text="0"/>
                 </HBox>
-                <Separator/>
+                <Separator visible="false" managed="false"/>
                 <Label styleClass="config-group-title" text="交互"/>
                 <HBox>
                     <JFXCheckBox fx:id="configBehaviorAllowInteract" mnemonicParsing="false" text="允许触发交互动画"/>

@@ -597,7 +597,7 @@ public final class ModelsModule implements Controller<HoyoHomeFX> {
         }
         // Apply to app.config, but not to save
         app.config.character_asset = model.key;
-        app.config.character_files = model.getAccessor().getFileMapAsJSONObject();
+//        app.config.character_files =
         app.config.character_label = model.name;
     }
 

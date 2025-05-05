@@ -33,17 +33,17 @@ public class HoyoConfig implements Serializable {
     private static boolean isNewcomer = false;
 
     // Config items and default values:
-    /** @since ArkPets 1.0 */ @JSONField(defaultValue = "4")
+    /** @since ArkPets 1.0 */ @JSONField(defaultValue = "4", serialize = false, deserialize = false)
     public int          behavior_ai_activation;
     /** @since ArkPets 1.0 */ @JSONField(defaultValue = "true")
     public boolean      behavior_allow_interact;
-    /** @since ArkPets 1.0 */ @JSONField(defaultValue = "true")
+    /** @since ArkPets 1.0 */ @JSONField(defaultValue = "true", serialize = false, deserialize = false)
     public boolean      behavior_allow_sit;
-    /** @since ArkPets 3.6 */ @JSONField(defaultValue = "false")
+    /** @since ArkPets 3.6 */ @JSONField(defaultValue = "false", serialize = false, deserialize = false)
     public boolean      behavior_allow_sleep;
-    /** @since ArkPets 3.6 */ @JSONField(defaultValue = "true")
+    /** @since ArkPets 3.6 */ @JSONField(defaultValue = "true", serialize = false, deserialize = false)
     public boolean      behavior_allow_special;
-    /** @since ArkPets 1.0 */ @JSONField(defaultValue = "true")
+    /** @since ArkPets 1.0 */ @JSONField(defaultValue = "true", serialize = false, deserialize = false)
     public boolean      behavior_allow_walk;
     /** @since ArkPets 1.6 */ @JSONField(defaultValue = "true")
     public boolean      behavior_do_peer_repulsion;
@@ -55,7 +55,7 @@ public class HoyoConfig implements Serializable {
     public int          canvas_sampling_interval;
     /** @since ArkPets 2.0 */ @JSONField()
     public String       character_asset;
-    /** @since ArkPets 3.5 */ @JSONField()
+    /** @since ArkPets 3.5 */ @JSONField(serialize = false, deserialize = false)
     public JSONObject   character_favorites;
     /** @since ArkPets 2.2 */ @JSONField()
     public JSONObject   character_files;
