@@ -531,12 +531,12 @@ public final class ModelsModule implements Controller<HoyoHomeFX> {
         Label name = new Label(model.toString());
         name.getStyleClass().addAll("list-item-label");
         name.setPrefSize(width, height);
-//        name.setPrefSize(model.skinGroupName == null ? width : width * divide, height);
+        name.setPrefSize(width * divide, height);
         name.setLayoutX(15);
-//        Label alias1 = new Label(model.skinGroupName);
-//        alias1.getStyleClass().addAll("list-item-label-sub");
-//        alias1.setPrefSize(width * (1 - divide), height);
-//        alias1.setLayoutX(model.skinGroupName == null ? 0 : width * divide);
+        Label alias1 = new Label(model.appellation);
+        alias1.getStyleClass().addAll("list-item-label-sub");
+        alias1.setPrefSize(width * (1 - divide), height);
+        alias1.setLayoutX(model.appellation == null ? 0 : width * divide);
         SVGPath fav = GuiPrefabs.Icons.getIcon(GuiPrefabs.Icons.SVG_STAR_FILLED, GuiPrefabs.COLOR_WARNING);
         fav.getStyleClass().add("Search-models-star");
         fav.setLayoutX(0);
@@ -544,7 +544,7 @@ public final class ModelsModule implements Controller<HoyoHomeFX> {
         fav.setScaleX(0.75);
         fav.setScaleY(0.75);
         item.setPrefSize(width, height);
-        item.setGraphic(new Group(fav, name/*, alias1*/));
+        item.setGraphic(new Group(fav, name, alias1));
         item.setItem(model);
         item.setId(model.key);
         if (app.config.character_favorites.containsKey(model.key))
